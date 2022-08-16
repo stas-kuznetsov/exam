@@ -16,7 +16,7 @@ pipeline {
         stage('Stage 2. Build App') {
             steps {
                 echo 'Start building app'
-                sh "./spring-petclinic/mvnw package"
+                sh "/Jenkins/spring-petclinic/mvnw package"
      //           sh "./mvnw package"
                 echo 'End building app'
             }
