@@ -8,7 +8,7 @@ pipeline {
                 cleanWs() // Cleanup workspace
                 script {
                     echo 'Start cloning java repo'
-                    sh "git clone https://github.com/stas-kuznetsov/epam_code.git"
+                    sh "https://github.com/stas-kuznetsov/epam_source.git"
                     echo 'End cloning java repo'
                     }
             }
