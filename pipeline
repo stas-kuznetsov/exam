@@ -2,10 +2,32 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        
+        stage('Stage 1. Cloning java repo') {
+            steps {
+                echo 'Start cloning java repo'
+                git clone https://github.com/spring-projects/spring-petclinic.git
+                echo 'End cloning java repo'
+            }
+        }
+        
+        stage('Stage 2') {
             steps {
                 echo 'Hello world!' 
             }
         }
+        
+        stage('Stage 3') {
+            steps {
+                echo 'Hello world!' 
+            }
+        }
+        
+        stage('Stage 4') {
+            steps {
+                echo 'Hello world!' 
+            }
+        }
+        
     }
 }
