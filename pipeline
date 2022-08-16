@@ -16,8 +16,7 @@ pipeline {
         stage('Stage 2. Build App') {
             steps {
                 echo 'Start building app'
-                cd epam-source
-                sh "./mvnw package"
+                sh "./epam_source/mvnw package"
                 echo 'End building app'
             }
         }
