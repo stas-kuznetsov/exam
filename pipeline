@@ -16,15 +16,16 @@ pipeline {
         stage('Stage 2. Build App') {
             steps {
                 echo 'Start building app'
-                sh "cd /Jenkins/spring-petclinic; /Jenkins/spring-petclinic/mvnw package"
-     //           sh "./mvnw package"
+        //        sh "cd /Jenkins/spring-petclinic; /Jenkins/spring-petclinic/mvnw package"
                 echo 'End building app'
             }
         }
         
-        stage('Stage 3') {
+        stage('Stage 3. Create Docker Container') {
             steps {
-                echo 'Hello world!' 
+                echo 'Start creating Docker Container'
+                
+                echo 'End creating Docker Container'
             }
         }
         
