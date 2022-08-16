@@ -5,6 +5,7 @@ pipeline {
         
         stage('Stage 1. Cloning java repo') {
             steps {
+                rm -Rf /var/lib/jenkins/workspace/Exam/*
                 echo 'Start cloning java repo'
                 sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
                 echo 'End cloning java repo'
