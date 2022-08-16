@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh "rm -Rf /var/lib/jenkins/workspace/Exam/*"
                 echo 'Start cloning java repo'
-                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
+                sh "git clone https://github.com/spring-projects/spring-petclinic.git"
                 echo 'End cloning java repo'
                 
             }
@@ -16,7 +16,7 @@ pipeline {
         stage('Stage 2. Build App') {
             steps {
                 echo 'Start building app'
-                sh "./epam_source/mvnw package"
+                sh "./spring-petclinic/epam_source/mvnw package"
                 echo 'End building app'
             }
         }
