@@ -12,9 +12,12 @@ pipeline {
             }
         }
         
-        stage('Stage 2') {
+        stage('Stage 2. Build App') {
             steps {
-                echo 'Hello world!' 
+                echo 'Start building app'
+                cd epam-source
+                sh "./mvnw package"
+                echo 'End building app'
             }
         }
         
