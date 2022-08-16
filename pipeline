@@ -24,7 +24,7 @@ pipeline {
         stage('Stage 3. Create Docker Container') {
             steps {
                 echo 'Start creating Docker Container'
-                sh "cd /Jenkins; git clone https://github.com/stas-kuznetsov/exam.git; docker build -t petclinic:$BUILD_NUMBER" /Jenkins/exam
+                sh "cd /Jenkins; git clone https://github.com/stas-kuznetsov/exam.git; cp /Jenkins/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar /Jenkins/app1.jar; docker build -t petclinic:$BUILD_NUMBER /Jenkins/exam"
                 
                 echo 'End creating Docker Container'
             }
