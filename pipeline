@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Start building app'
     //            sh "cd /Jenkins/spring-petclinic; /Jenkins/spring-petclinic/mvnw package"
-                sh "cd epam_source; ./mvnw spring-boot:BUILD_NUMBER"
+                sh "cd epam_source; ./mvnw spring-boot:build-image"
                 echo 'End building app'
             }
         }
