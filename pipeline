@@ -7,7 +7,7 @@ pipeline {
             steps {
        //         sh "rm -Rf /var/lib/jenkins/workspace/*"
                 echo 'Start cloning java repo'
-                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
+       //         sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
                 echo 'End cloning java repo'
                 
             }
@@ -16,7 +16,8 @@ pipeline {
         stage('Stage 2. Create Docker Container') {
             steps {
                 echo 'Start creating Docker Container'
-                sh "cd epam_source; ./mvnw spring-boot:build-image"
+       //         sh "cd epam_source; ./mvnw spring-boot:build-image"
+                sh 'docker run -d spring-boot:build-image'
                 echo 'End creating Docker Container'
             }
         }
