@@ -16,16 +16,15 @@ pipeline {
         stage('Stage 2. Create Docker Container') {
             steps {
                 echo 'Start creating Docker Container'
-       //         sh "cd epam_source; ./mvnw spring-boot:build-image"
                 sh 'cd epam_source; docker build -t pet-clinic:v$BUILD_NUMBER .devcontainer'
                 echo 'End creating Docker Container'
             }
         }
         
-        stage('Stage 3. Create Docker Container') {
+        stage('Stage 3. Push Docker Container to Docker Trusted Registry') {
             steps {
                 echo ''
-      //          sh "cd /Jenkins; git clone https://github.com/stas-kuznetsov/exam.git; cp /Jenkins/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar /Jenkins/app1.jar; docker build -t petclinic:$BUILD_NUMBER /Jenkins/exam"
+                
                 
                 echo ''
             }
