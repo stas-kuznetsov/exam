@@ -7,7 +7,9 @@ pipeline {
             steps {
                 sh "rm -Rf /Jenkins/*"
                 echo 'Start cloning java repo'
-                sh "cd /Jenkins; git clone https://github.com/spring-projects/spring-petclinic.git"
+    //            sh "cd /Jenkins; git clone https://github.com/spring-projects/spring-petclinic.git"
+                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
+                
                 echo 'End cloning java repo'
                 
             }
@@ -16,7 +18,8 @@ pipeline {
         stage('Stage 2. Build App') {
             steps {
                 echo 'Start building app'
-                sh "cd /Jenkins/spring-petclinic; /Jenkins/spring-petclinic/mvnw package"
+    //            sh "cd /Jenkins/spring-petclinic; /Jenkins/spring-petclinic/mvnw package"
+                sh "cd epam_source; ./mvnw spring-boot:build-image"
                 echo 'End building app'
             }
         }
@@ -24,7 +27,7 @@ pipeline {
         stage('Stage 3. Create Docker Container') {
             steps {
                 echo 'Start creating Docker Container'
-                sh "cd /Jenkins; git clone https://github.com/stas-kuznetsov/exam.git; cp /Jenkins/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar /Jenkins/app1.jar; docker build -t petclinic:$BUILD_NUMBER /Jenkins/exam"
+      //          sh "cd /Jenkins; git clone https://github.com/stas-kuznetsov/exam.git; cp /Jenkins/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar /Jenkins/app1.jar; docker build -t petclinic:$BUILD_NUMBER /Jenkins/exam"
                 
                 echo 'End creating Docker Container'
             }
