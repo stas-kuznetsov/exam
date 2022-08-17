@@ -16,7 +16,7 @@ pipeline {
         stage('Stage 2. Create Docker Container') {
             steps {
                 echo 'Start creating Docker Container'
-                sh 'cd epam_source; docker build -t pet-clinic:v$BUILD_NUMBER .devcontainer'
+                sh 'cd epam_source; ./mvnw spring-boot:build-image'
                 echo 'End creating Docker Container'
             }
         }
