@@ -5,7 +5,7 @@ pipeline {
         
         stage('Stage 1. Cloning java repo') {
             steps {
-                sh "rm -Rf /Jenkins/*"
+      //          sh "rm -Rf /Jenkins/*"
                 echo 'Start cloning java repo'
     //            sh "cd /Jenkins; git clone https://github.com/spring-projects/spring-petclinic.git"
                 sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
