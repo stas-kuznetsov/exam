@@ -17,17 +17,16 @@ pipeline {
             steps {
                 echo 'Start creating Docker Container'
                 sh 'cd epam_source; ./mvnw spring-boot:build-image'
-                sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT petclinic:v$BUILD_NMBER'
+                sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT localhost:5000/petclinic:v$BUILD_NMBER'
                 echo 'End creating Docker Container'
             }
         }
         
-        stage('Stage 3. Push Docker Container to Docker Trusted Registry') {
+        stage('Stage 3. Push Docker Container to Docker Registry') {
             steps {
-                echo ''
-                
-                
-                echo ''
+               echo 'Stast push Docker Container to Docker Registry'
+               sh 'docker push localhost:5000/petclinic:v$BUILD_NMBER'      
+               echo 'End push Docker Container to Docker Registry'
             }
         }
         
