@@ -7,7 +7,7 @@ pipeline {
             steps {
        //         sh "rm -Rf /var/lib/jenkins/workspace/*"
                 echo 'Start cloning java repo'
-       //         sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
+                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
                 echo 'End cloning java repo'
                 
             }
