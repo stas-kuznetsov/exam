@@ -33,7 +33,7 @@ pipeline {
         stage('Stage 4. Deploy Docker Container to Prod host') {
             steps {
                 echo 'Hello world!' 
-                sh 'cd ..; ansible-playbook /home/stas/playbook.yml'
+                sh 'cd ..; ansible-playbook playbook.yml'
                 echo 'Hello world!' 
             }
         }
