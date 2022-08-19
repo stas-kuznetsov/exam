@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Start creating Docker Container'
                 sh 'cd epam_source; ./mvnw spring-boot:build-image'
-                sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT localhost:5000/petclinic:v$BUILD_NUMBER'
+                sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT docker:5000/petclinic:v$BUILD_NUMBER'
                 echo 'End creating Docker Container'
             }
         }
