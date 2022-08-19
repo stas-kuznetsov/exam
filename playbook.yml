@@ -1,19 +1,18 @@
- ---
- 2 - hosts: prod
- 3   become: true
- 4
- 5   tasks:
- 6     - name: Update apt and install docker
- 7       apt:
- 8         name: docker
- 9         state: latest
-10         update_cache: true
-11
-12     - name: Pull Docker image
-13       command: docker pull docker:5000/petclinic:v$BUILD_NUMBER
-14
-15
-16
-17     - name: Run Docker image
-18       command: docker run -d -p 80:8080 docker:5000/petclinic:v$BUILD_NUMBER
-19
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update apt and install docker
+      apt:
+        name: docker
+        state: latest
+        update_cache: true
+
+    - name: Pull Docker image
+      command: docker pull docker:5000/petclinic:v$BUILD_NUMBER
+
+
+
+    - name: Run Docker image
+      command: docker run -d -p 80:8080 docker:5000/petclinic:v$BUILD_NUMBER
