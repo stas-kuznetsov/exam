@@ -10,9 +10,9 @@
         update_cache: true
 
     - name: Pull Docker image
-      command: docker pull docker:5000/petclinic:v$BUILD_NUMBER
+      command: docker pull docker:5000/petclinic:v12
 
 
 
     - name: Run Docker image
-      command: docker run -d -p 80:8080 docker:5000/petclinic:v$BUILD_NUMBER
+      command: docker run -d -p 80:8080 docker:5000/petclinic:v12
