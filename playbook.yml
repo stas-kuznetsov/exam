@@ -13,10 +13,10 @@
         update_cache: true
         
     - name: Delete running containers
-      command: docker rm -vf $(docker ps -aq)
+      command: 'docker rm -vf $(docker ps -aq)'
       
     - name: Delete all Docker Images
-      command: docker rmi -f $(docker images -aq)
+      command: 'docker rmi -f $(docker images -aq)'
 
     - name: Pull Docker image
       command: docker pull docker:5000/petclinic:v{{ build }}
