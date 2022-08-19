@@ -1,5 +1,5 @@
  ---
- 2 - hosts: prod
+ 2 - hosts: all
  3   become: true
  4
  5   tasks:
