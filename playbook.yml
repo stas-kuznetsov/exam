@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: true
+  vars:
+    build: 12
 
   tasks:
     - name: Update apt and install docker
