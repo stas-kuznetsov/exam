@@ -33,7 +33,7 @@ pipeline {
         stage('Stage 4. Deploy Docker Container to Prod host') {
             steps {
                 echo 'Hello world!' 
-                sh 'ansible-playbook playbook.yml -u stas --key-file=/key/id_rsa --extra-vars "biuld=$BUILD_NUMBER"'
+                sh 'ansible-playbook playbook.yml -u stas --key-file=/key/id_rsa --extra-vars "build=$BUILD_NUMBER"'
                 echo 'Hello world!' 
             }
         }
