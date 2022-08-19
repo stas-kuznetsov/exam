@@ -12,32 +12,11 @@
         state: latest
         update_cache: true
         
-    - name: Get running containers
-      docker_host_info:
-        containers: yes
-      register: docker_info
-
-    - name: Stop running containers
-      docker_container:
-        name: "{{ item }}"
-        state: stopped
-      loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
-    - name: Remove Stoped docker containers
-      shell: |
-        docker rm $(docker ps -a -q);
-      when: docker_info.containers != 0
-
-    - name: Get details of all images
-      docker_host_info:
-        images: yes
-        verbose_output: yes
-      register: image_info
-    - name: Remove all images
-      docker_image:
-        name: "{{ item }}"
-        state: absent
-      loop: "{{ image_info.images | map(attribute='Id') | list }}" 
-     
+    - name: Delete running containers
+      command: docker rm -vf $(docker ps -aq)
+      
+    - name: Delete all Docker Images
+      command: docker rmi -f $(docker images -aq)
 
     - name: Pull Docker image
       command: docker pull docker:5000/petclinic:v{{ build }}
