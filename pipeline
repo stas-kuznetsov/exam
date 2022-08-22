@@ -37,7 +37,7 @@ pipeline {
          stage('Stage 4. Delete old cotainer and old container image on Prod host') {
             steps {
                 echo 'Start Deploying Docker Container to Prod host' 
-                sh 'ssh stas@prod << EOF; docker rm -f $(docker ps -aq); docker rmi -f $(docker images -aq) ; EOF'
+                sh 'ssh stas@prod -i /key/id_rsa << EOF; docker rm -f $(docker ps -aq); docker rmi -f $(docker images -aq) ; EOF'
         
                     }
          }
