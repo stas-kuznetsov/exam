@@ -4,6 +4,7 @@
   become: true
   vars:
     build: 12
+    idd: 1
 
   tasks:
     - name: Update apt and install docker
@@ -13,7 +14,8 @@
         update_cache: true
         
     - name: Delete running containers
-      command: 'docker rm -f $(docker ps --all --quiet)'
+      command: {{ idd }}='docker ps --all --quiet'
+      command: 'docker rm -f {{ idd }}'
       
     - name: Delete all Docker Images
       command: 'docker rmi -f $(docker images -all --quiet)'
