@@ -20,7 +20,7 @@
       
     - name: Delete all Docker Images
       command: idd='docker images --all --quiet'
-      command: 'docker rmi -f {{ idm }}'
+      command: 'docker rmi -f {{ idi }}'
       
       
 
