@@ -4,7 +4,8 @@
   become: true
   vars:
     build: 12
-    idd: 1
+    idc: 1
+    idi: 1
 
   tasks:
     - name: Update apt and install docker
@@ -15,10 +16,13 @@
         
     - name: Delete running containers
       command: idd='docker ps --all --quiet'
-      command: 'docker rm -f {{ idd }}'
+      command: 'docker rm -f {{ idc }}'
       
     - name: Delete all Docker Images
-      command: 'docker rmi -f $(docker images -all --quiet)'
+      command: idd='docker images --all --quiet'
+      command: 'docker rmi -f {{ idm }}'
+      
+      
 
     - name: Pull Docker image
       command: docker pull docker:5000/petclinic:v{{ build }}
