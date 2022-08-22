@@ -2,6 +2,10 @@ def scan_type
  def target
  pipeline {
      agent any
+     options {
+     // This is required if you want to clean before build
+     skipDefaultCheckout(true)
+    }  
      parameters {
          choice  choices: ["Baseline", "APIS", "Full"],
                  description: 'Type of scan that is going to perform inside the container',
@@ -16,7 +20,15 @@ def scan_type
                  name: 'GENERATE_REPORT'
      }
      stages {
-         stage('Pipeline Info') {
+    
+     stage('Stage. Cleaning WorkSpace') {
+         steps {
+             cleanWs()    // Clean before build                
+            }
+        }    
+    
+    
+    stage('Pipeline Info') {
                  steps {
                      script {
                          echo "<--Parameter Initialization-->"
