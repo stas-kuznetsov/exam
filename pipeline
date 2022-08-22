@@ -41,20 +41,7 @@ pipeline {
                 echo 'End Deploying Docker Container to Prod host' 
             }
          }
-            
-        stage('Stage 5. Clean WorkSpace') {
-                // Clean after build
-        always {
-            cleanWs(cleanWhenNotBuilt: false,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
-        }            
-        }
-            
-            
+                         
          }
  }
             
