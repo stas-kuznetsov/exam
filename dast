@@ -119,6 +119,7 @@ def scan_type
                  script {
                      sh '''
                          docker cp owasp:/zap/wrk/report.xml ${WORKSPACE}/report.xml
+                         docker cp owasp:/zap/wrk/* ${WORKSPACE}/
                      '''
                  }
              }
