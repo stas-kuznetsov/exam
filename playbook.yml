@@ -14,13 +14,13 @@
         state: latest
         update_cache: true
         
-    - name: Delete running containers
-      command: idd='docker ps --all --quiet'
-      command: 'docker rm -f {{ idc }}'
+#    - name: Delete running containers
+#      command: idd='docker ps --all --quiet'
+#      command: 'docker rm -f {{ idc }}'
       
-    - name: Delete all Docker Images
-      command: idd='docker images --all --quiet'
-      command: 'docker rmi -f {{ idi }}'
+#    - name: Delete all Docker Images
+#      command: idd='docker images --all --quiet'
+#      command: 'docker rmi -f {{ idi }}'
       
       
 
