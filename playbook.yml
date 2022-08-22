@@ -4,8 +4,8 @@
   become: true
   vars:
     build: 12
-    idc: 1
-    idi: 1
+    idc: 
+    idi: 
 
   tasks:
     - name: Update apt and install docker
