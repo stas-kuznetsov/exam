@@ -38,7 +38,6 @@ pipeline {
             steps {
                 echo 'Start Deploying Docker Container to Prod host'
                 sh 'pwd; ls -al; git clone https://github.com/stas-kuznetsov/exam.git' 
-       //         sh 'docker rm -f $(docker ps -aq)'   //Deleting 
                 sh 'cd exam; pwd; ls -al; ansible-playbook playbook.yml -u stas --key-file=/key/id_rsa --extra-vars "build=$BUILD_NUMBER"'
                 echo 'End Deploying Docker Container to Prod host' 
             }
