@@ -33,8 +33,16 @@ pipeline {
                echo 'End push Docker Container to Docker Registry'
             }
         }
+       
+         stage('Stage 4. Delete old cotainer and old container image on Prod host') {
+            steps {
+                echo 'Start Deploying Docker Container to Prod host' 
+                sh 'ssh stas@prod << EOF; docker rm -f $(docker ps -aq); docker rmi -f $(docker images -aq) ; EOF'
         
-        stage('Stage 4. Deploy Docker Container to Prod host') {
+                    }
+         }
+        
+        stage('Stage 5. Deploy Docker Container to Prod host') {
             steps {
                 echo 'Start Deploying Docker Container to Prod host'
                 sh 'pwd; ls -al; git clone https://github.com/stas-kuznetsov/exam.git' 
