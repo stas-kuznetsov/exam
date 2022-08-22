@@ -9,7 +9,7 @@ pipeline {
         
         stage('Stage 1. Cloning java repo') {
             steps {
-   //             cleanWs()    // Clean before build
+                cleanWs()    // Clean before build
                 echo 'Start cloning java repo'
                 sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
                 echo 'End cloning java repo'
@@ -43,20 +43,7 @@ pipeline {
          }
                          
          }
-         
-    post {
-        // Clean after build
-        always {
-            cleanWs(cleanWhenNotBuilt: false,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
-        }
-    }         
-         
- }
+  }
             
         
         
