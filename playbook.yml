@@ -13,11 +13,11 @@
         state: latest
         update_cache: true
         
-#    - name: Delete running containers
-#      shell: docker rm -f $(docker ps --all --quiet)
+    - name: Delete running containers
+      shell: docker rm -f $(docker ps --all --quiet)
       
-#    - name: Delete all Docker Images
-#      shell: docker rmi -f $(docker images --all --quiet)    
+    - name: Delete all Docker Images
+      shell: docker rmi -f $(docker images --all --quiet)    
       
 
     - name: Pull Docker image
