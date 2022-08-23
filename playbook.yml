@@ -18,9 +18,9 @@
  #     shell: idc='docker ps --all --quiet'
  #     shell: 'docker rm -f {{ idc }}'
       
-    - name: Delete all Docker Images
-      shell: idd='docker images --all --quiet'
-      shell: 'docker rmi -f {{ idi }}'
+#    - name: Delete all Docker Images
+#      shell: idd='docker images --all --quiet'
+#      shell: 'docker rmi -f {{ idi }}'
       
       
 
