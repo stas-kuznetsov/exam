@@ -1,0 +1,23 @@
+pipeline {
+agent any
+stages {
+
+stage('Fortify Translate') {
+steps {
+fortifyTranslate buildID: 'MyJavaApp',
+logFile: 'MyJavaApp-translate.log',
+projectScanType: fortifyJava(javaSrcFiles:
+'src\\main\\java\\com\\projectA', javaVersion: '1.8')
+}
+}
+stage('Fortify Scan') {
+steps {
+fortifyScan buildID: 'MyJavaApp',
+resultsFile: 'MyJavaApp.fpr'
+customRulepacks: 'MyRules.xml',
+logFile: 'MyJavaApp-scan.log'
+}
+}
+
+}
+}
