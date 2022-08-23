@@ -16,10 +16,12 @@
         
     - name: Delete running containers
       shell: idc='docker ps --all --quiet'
+      shell: echo $idc
       shell: 'docker rm -f {{ idc }}'
       
     - name: Delete all Docker Images
       shell: idi='docker images --all --quiet'
+      shell: echo $idi
       shell: 'docker rmi -f {{ idi }}'
       
       
