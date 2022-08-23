@@ -14,10 +14,10 @@
         update_cache: true
         
     - name: Delete running containers
-      shell: if [ docker ps --all --quiet ] than docker rm -f $(docker ps --all --quiet) fi
+      shell: if [ docker ps --all --quiet ] ; than docker rm -f $(docker ps --all --quiet) ; fi
       
     - name: Delete all Docker Images
-      shell: if [ docker images --all --quiet ] docker rmi -f $(docker images --all --quiet) fi    
+      shell: if [ docker images --all --quiet ] ; docker rmi -f $(docker images --all --quiet) ; fi    
       
 
     - name: Pull Docker image
