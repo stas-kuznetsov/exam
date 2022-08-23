@@ -14,9 +14,9 @@
         state: latest
         update_cache: true
         
-    - name: Delete running containers
-      shell: idc='docker ps --all --quiet'
-      shell: 'docker rm -f {{ idc }}'
+ #   - name: Delete running containers
+ #     shell: idc='docker ps --all --quiet'
+ #     shell: 'docker rm -f {{ idc }}'
       
     - name: Delete all Docker Images
       shell: idd='docker images --all --quiet'
