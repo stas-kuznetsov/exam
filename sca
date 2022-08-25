@@ -7,7 +7,7 @@ stages {
                 cleanWs()    // Clean before build
                 echo 'Start cloning java repo'
                 sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
-                sh 'cd epam_source'
+  ..              sh 'cd epam_source'
                 echo 'End cloning java repo'
                 
             }
@@ -15,7 +15,7 @@ stages {
 
 stage('Fortify Translate') {
 steps {
-fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
+fortifyTranslate buildID: '/var/lib/jenkins/workspace/sca/epam_source',
 logFile: 'MyJavaApp-translate.log',
 projectScanType: fortifyJava(javaSrcFiles:
 'src\\main\\java\\org\\springframework\\samples\\petclinic', javaVersion: '1.8')
@@ -24,7 +24,7 @@ projectScanType: fortifyJava(javaSrcFiles:
 
 stage('Fortify Scan') {
 steps {
-fortifyScan buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
+fortifyScan buildID: '/var/lib/jenkins/workspace/sca/epam_source',
 resultsFile: 'MyJavaApp.fpr',
 // customRulepacks: 'MyRules.xml',
 logFile: 'MyJavaApp-scan.log'
