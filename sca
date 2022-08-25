@@ -3,16 +3,21 @@ agent any
 stages {
 
 stage('Fortify Update') {
+steps {
 fortifyUpdate updateServerURL: 'https://update.fortify.com'
+}
 }
 
 stage('Fortify Clean') {
-fortifyClean buildID: 'MyJavaApp', logFile: 'MyJavaAppFortify.log'
+steps {
+fortifyClean buildID: 'MyJavaApp',
+logFile: 'MyJavaAppFortify.log'
+}
 }
 
 stage('Fortify Translate') {
 steps {
-fortifyTranslate buildID: 'MyJavaApp',
+fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
 logFile: 'MyJavaApp-translate.log',
 projectScanType: fortifyJava(javaSrcFiles:
 'src\\main\\java\\com\\projectA', javaVersion: '1.8')
@@ -21,7 +26,7 @@ projectScanType: fortifyJava(javaSrcFiles:
 
 stage('Fortify Scan') {
 steps {
-fortifyScan buildID: 'MyJavaApp',
+fortifyScan buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
 resultsFile: 'MyJavaApp.fpr',
 // customRulepacks: 'MyRules.xml',
 logFile: 'MyJavaApp-scan.log'
