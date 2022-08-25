@@ -20,7 +20,7 @@ steps {
 fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
 logFile: 'MyJavaApp-translate.log',
 projectScanType: fortifyJava(javaSrcFiles:
-'src\\main\\java\\com\\projectA', javaVersion: '1.8')
+'src/main/java/org/springframework/samples/petclinic/', javaVersion: '1.8')
 }
 }
 
