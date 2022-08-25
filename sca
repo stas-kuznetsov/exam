@@ -1,35 +1,16 @@
 pipeline {
 agent any
+
 stages {
-
-        stage('Stage 1. Cloning java repo') {
+        stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
-                cleanWs()    // Clean before build
-                echo 'Start cloning java repo'
-                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
-  //              sh 'cd epam_source'
-                echo 'End cloning java repo'
-                
+                dependencyCheck additionalArguments: ''' 
+                    -o "./" 
+                    -s "./"
+                    -f "ALL" 
+                    --prettyPrint''', odcInstallation: 'OWASP-DC'
+
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
-        }
-
-stage('Fortify Translate') {
-steps {
-fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source/tree/main/src/main/java/org/springframework/samples/petclinic',
-logFile: 'MyJavaApp-translate.log',
-projectScanType: fortifyJava(javaSrcFiles:
-'https://github.com/stas-kuznetsov/epam_source/tree/main/src/main/java/org/springframework/samples/petclinic', javaVersion: '1.8')
-}
-}
-
-stage('Fortify Scan') {
-steps {
-fortifyScan buildID: '/var/lib/jenkins/workspace/sca/epam_source',
-resultsFile: 'MyJavaApp.fpr',
-// customRulepacks: 'MyRules.xml',
-logFile: 'MyJavaApp-scan.log'
-}
-}
-
-}
-}
+        }     
+    }
