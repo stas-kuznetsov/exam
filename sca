@@ -13,7 +13,7 @@ projectScanType: fortifyJava(javaSrcFiles:
 stage('Fortify Scan') {
 steps {
 fortifyScan buildID: 'MyJavaApp',
-resultsFile: 'MyJavaApp.fpr'
+resultsFile: 'MyJavaApp.fpr',
 // customRulepacks: 'MyRules.xml',
 logFile: 'MyJavaApp-scan.log'
 }
