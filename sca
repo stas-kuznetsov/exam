@@ -15,10 +15,10 @@ stages {
 
 stage('Fortify Translate') {
 steps {
-fortifyTranslate buildID: '/var/lib/jenkins/workspace/sca/epam_source',
+fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source/tree/main/src/main/java/org/springframework/samples/petclinic',
 logFile: 'MyJavaApp-translate.log',
 projectScanType: fortifyJava(javaSrcFiles:
-'src/main/java/org/springframework/samples/petclinic', javaVersion: '1.8')
+'https://github.com/stas-kuznetsov/epam_source/tree/main/src/main/java/org/springframework/samples/petclinic', javaVersion: '1.8')
 }
 }
 
