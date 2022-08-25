@@ -2,25 +2,14 @@ pipeline {
 agent any
 stages {
 
-// stage('Fortify Update') {
-// steps {
-// fortifyUpdate updateServerURL: 'https://update.fortify.com'
-// }
-// }
-
-// stage('Fortify Clean') {
-// steps {
-// fortifyClean buildID: 'MyJavaApp',
-// logFile: 'MyJavaAppFortify.log'
-// }
-// }
-
-        stage('Git commit') {
+        stage('Stage 1. Cloning java repo') {
             steps {
-                echo 'Start Git clone'
-                sh 'git clone https://github.com/stas-kuznetsov/epam_source.git '
-     //           sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT docker:5000/petclinic:v$BUILD_NUMBER'
-                echo 'End Git clone'
+                cleanWs()    // Clean before build
+                echo 'Start cloning java repo'
+                sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
+                sh 'cd epam_source'
+                echo 'End cloning java repo'
+                
             }
         }
 
