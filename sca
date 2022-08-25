@@ -7,7 +7,7 @@ stage ('Dependency-Check Analysis'){
             steps {
                 dependencyCheck additionalArguments: '', odcInstallation: 'OWASP Dependency-Check Plugin'
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml' 
-                sh 'mv dependency-check-report.xml /var/lib/jenkins/workspace' 
+                sh 'mv dependency-check-report.xml /var/lib/jenkins/workspace/sca' 
 
             }    
         }
