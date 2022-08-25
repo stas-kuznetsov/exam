@@ -3,11 +3,11 @@ agent any
     stages {
 
   
-                    stage('Dependency Check') {
-                     steps {
-                    mvn 'org.owasp:dependency-check-maven:check -Ddependency-check-format=HTML'
-                    step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
-                }  
-         }      
+stage ('Dependency-Check Analysis'){
+            steps {
+                dependencyCheck additionalArguments: '', odcInstallation: 'OWASP Dependency-Check Plugin'
+            }    
+        }
+      
   }
 }
