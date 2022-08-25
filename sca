@@ -14,7 +14,7 @@ stage('Fortify Scan') {
 steps {
 fortifyScan buildID: 'MyJavaApp',
 resultsFile: 'MyJavaApp.fpr'
-customRulepacks: 'MyRules.xml',
+// customRulepacks: 'MyRules.xml',
 logFile: 'MyJavaApp-scan.log'
 }
 }
