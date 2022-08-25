@@ -7,7 +7,7 @@ stages {
                 cleanWs()    // Clean before build
                 echo 'Start cloning java repo'
                 sh "git clone https://github.com/stas-kuznetsov/epam_source.git"
-  ..              sh 'cd epam_source'
+  //              sh 'cd epam_source'
                 echo 'End cloning java repo'
                 
             }
