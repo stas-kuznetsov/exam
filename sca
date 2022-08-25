@@ -2,11 +2,10 @@ pipeline {
 agent any
     stages {
 
-   stage('OWASP Dependency-Check Vulnerabilities') {  
+  
                     stage('Dependency Check') {
                     mvn 'org.owasp:dependency-check-maven:check -Ddependency-check-format=HTML'
                     step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
                 }  
-   }  
-}
+  }
 }
