@@ -2,6 +2,10 @@ pipeline {
 agent any
 stages {
 
+stage('Fortify Update') {
+fortifyUpdate updateServerURL: 'https://update.fortify.com'
+}
+
 stage('Fortify Translate') {
 steps {
 fortifyTranslate buildID: 'MyJavaApp',
@@ -10,6 +14,7 @@ projectScanType: fortifyJava(javaSrcFiles:
 'src\\main\\java\\com\\projectA', javaVersion: '1.8')
 }
 }
+
 stage('Fortify Scan') {
 steps {
 fortifyScan buildID: 'MyJavaApp',
