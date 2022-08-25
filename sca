@@ -2,11 +2,11 @@ pipeline {
 agent any
 stages {
 
-stage('Fortify Update') {
-steps {
-fortifyUpdate updateServerURL: 'https://update.fortify.com'
-}
-}
+// stage('Fortify Update') {
+// steps {
+// fortifyUpdate updateServerURL: 'https://update.fortify.com'
+// }
+// }
 
 stage('Fortify Clean') {
 steps {
