@@ -6,6 +6,10 @@ stage('Fortify Update') {
 fortifyUpdate updateServerURL: 'https://update.fortify.com'
 }
 
+stage('Fortify Clean') {
+fortifyClean buildID: 'MyJavaApp', logFile: 'MyJavaAppFortify.log'
+}
+
 stage('Fortify Translate') {
 steps {
 fortifyTranslate buildID: 'MyJavaApp',
