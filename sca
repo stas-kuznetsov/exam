@@ -8,12 +8,12 @@ stages {
 // }
 // }
 
-stage('Fortify Clean') {
-steps {
-fortifyClean buildID: 'MyJavaApp',
-logFile: 'MyJavaAppFortify.log'
-}
-}
+// stage('Fortify Clean') {
+// steps {
+// fortifyClean buildID: 'MyJavaApp',
+// logFile: 'MyJavaAppFortify.log'
+// }
+// }
 
 stage('Fortify Translate') {
 steps {
