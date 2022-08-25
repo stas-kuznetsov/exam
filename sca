@@ -15,6 +15,15 @@ stages {
 // }
 // }
 
+        stage('Git commit') {
+            steps {
+                echo 'Start Git clone'
+                sh 'git clone https://github.com/stas-kuznetsov/epam_source.git '
+     //           sh 'docker tag spring-petclinic:2.7.0-SNAPSHOT docker:5000/petclinic:v$BUILD_NUMBER'
+                echo 'End Git clone'
+            }
+        }
+
 stage('Fortify Translate') {
 steps {
 fortifyTranslate buildID: 'https://github.com/stas-kuznetsov/epam_source.git',
